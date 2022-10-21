@@ -1,0 +1,24 @@
+Test-Command: /usr/share/cargo/bin/cargo-auto-test cc 1.0.73 --all-targets --all-features
+Features: test-name=rust-cc:@
+Depends: dh-cargo (>= 18), g++, librust-tempfile-3+default-dev, @
+Restrictions: allow-stderr, skip-not-installable, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test cc 1.0.73 --all-targets 
+Features: test-name=librust-cc-dev:default
+Depends: dh-cargo (>= 18), g++, librust-tempfile-3+default-dev, @
+Restrictions: allow-stderr, skip-not-installable, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test cc 1.0.73 --all-targets --no-default-features
+Features: test-name=librust-cc-dev:
+Depends: dh-cargo (>= 18), g++, librust-tempfile-3+default-dev, @
+Restrictions: allow-stderr, skip-not-installable, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test cc 1.0.73 --all-targets --no-default-features --features parallel
+Features: test-name=librust-cc+jobserver-dev:parallel
+Depends: dh-cargo (>= 18), g++, librust-tempfile-3+default-dev, @
+Restrictions: allow-stderr, skip-not-installable, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test cc 1.0.73 --all-targets --no-default-features --features jobserver
+Features: test-name=librust-cc+jobserver-dev:jobserver
+Depends: dh-cargo (>= 18), g++, librust-tempfile-3+default-dev, @
+Restrictions: allow-stderr, skip-not-installable, flaky
